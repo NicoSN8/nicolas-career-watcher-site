@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nicolas Career Watcher</title>
+<meta name="description" content="A personal, single-user tool that reads Nicolas Su Nobrega's job-alert emails read-only and notifies him about relevant openings.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <p class="name">Nicolas Career Watcher</p>
+  <p class="tag">A personal job-search assistant for one person: Nicolas Su Nobrega.</p>
+  <nav>
+    <a href="./" aria-current="page">Home</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms of Service</a>
+  </nav>
+</header>
+<main>
+  <h1>What it does</h1>
+  <p>Nicolas Career Watcher is a small program that Nicolas Su Nobrega runs on his own computer to keep track of job openings. It is not a public service and is not offered to anyone else. The only Google account it is meant to use is Nicolas's own.</p>
+  <ol>
+    <li><strong>Reads job-alert emails (read-only).</strong> On a schedule (about every 15 minutes while his computer is on), it uses the Gmail API with the <code>gmail.readonly</code> permission. It searches only for messages from job platforms: LinkedIn job alerts and application updates, Indeed job alerts and notices, and Handshake.</li>
+    <li><strong>Extracts the job details.</strong> From each of those emails it takes the job title, company, location, posting date when shown, and the public job link. Personal tracking parameters in the links are removed.</li>
+    <li><strong>Stores a minimal record locally.</strong> The details are saved in a database on Nicolas's computer. Full email bodies are not stored.</li>
+    <li><strong>Evaluates and deduplicates.</strong> Fixed rules compare each opening with Nicolas's target roles, location and stated requirements. They also merge the same job seen on several platforms and skip jobs he already applied to or that were closed.</li>
+    <li><strong>Notifies him.</strong> It sends short alerts and one daily summary to Nicolas's own Telegram chat.</li>
+  </ol>
+
+  <div class="card">
+    <p><strong>Important about the Gmail permission.</strong> Google's <code>gmail.readonly</code> permission technically allows reading the whole mailbox; Google does not offer a narrower "job emails only" permission. The restriction to job-platform senders is applied by this program's own search queries, not by Google. The program cannot send, delete, archive, label or mark email as read. It only makes read requests.</p>
+  </div>
+
+  <h2>What it does not do</h2>
+  <ul>
+    <li>It does not apply to jobs, send emails or messages to anyone except Nicolas's own Telegram chat, or edit any profile.</li>
+    <li>It does not sell, rent or advertise with any data.</li>
+    <li>It is not affiliated with or endorsed by Google, LinkedIn, Indeed, Handshake or Telegram.</li>
+  </ul>
+
+  <h2>Services involved</h2>
+  <p>The program runs on Nicolas's computer, but some data does pass through other companies. The <a href="privacy.html">Privacy Policy</a> explains each of them: Google (Gmail API), Telegram (notifications) and Factory, an AI software assistant that Nicolas uses in his own sessions to review openings and maintain the program.</p>
+
+  <h2>Contact</h2>
+  <p>Nicolas Su Nobrega · <a href="mailto:nicolassunobrega2@gmail.com">nicolassunobrega2@gmail.com</a></p>
+</main>
+<footer>
+  <p><a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms of Service</a> · Last updated October 6, 2026</p>
+</footer>
+</body>
+</html>
